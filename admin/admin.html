@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Site Admin — SchedAI CMS</title>
+  <link href="../css/styles.css" rel="stylesheet">
+  <link href="css/admin.css" rel="stylesheet">
+</head>
+<body>
+  <div class="admin-wrap">
+    <aside class="admin-sidebar" aria-label="Admin navigation">
+      <header class="admin-brand">
+        <strong>SchedAI — Admin</strong>
+      </header>
+
+      <section class="panel">
+        <h4>Pages</h4>
+        <ul id="pagesList" class="list"></ul>
+        <div class="row"><input id="newPageName" placeholder="New page slug (eg. /about)" /><button id="addPageBtn" class="btn btn-primary">Add</button></div>
+      </section>
+
+      <section class="panel">
+        <h4>Menu</h4>
+        <div id="menuList" class="list"></div>
+        <div class="row">
+          <input id="menuLabel" placeholder="Label" />
+          <input id="menuHref" placeholder="Href" />
+          <button id="addMenuBtn" class="btn btn-outline">Add</button>
+        </div>
+      </section>
+
+      <section class="panel small muted">
+        <button id="saveBtn" class="btn btn-primary">Save</button>
+        <button id="exportBtn" class="btn btn-outline">Export JSON</button>
+        <input id="importFile" type="file" accept=".json" style="display:none" />
+        <button id="importBtn" class="btn btn-ghost">Import JSON</button>
+        <button id="publishBtn" class="btn btn-primary">Publish (download)</button>
+      </section>
+
+      <footer class="panel small muted">
+        Local demo CMS • Data stored in localStorage
+      </footer>
+    </aside>
+
+    <main class="admin-main">
+      <div id="emptyNotice" class="muted">Select a page or create a new page to begin editing.</div>
+
+      <div id="editor" class="editor" hidden>
+        <div class="editor-header">
+          <div class="row" style="gap:12px;align-items:center;">
+            <label for="pageTitle">Title</label>
+            <input id="pageTitle" class="wide" />
+            <label for="pageSlug">Slug</label>
+            <input id="pageSlug" />
+            <button id="deletePageBtn" class="btn btn-outline">Delete page</button>
+          </div>
+        </div>
+
+        <section class="editor-body">
+          <h4>Sections</h4>
+          <div id="sectionsList" class="sections-list"></div>
+
+          <div class="panel">
+            <h5>Add section</h5>
+            <select id="newSectionType">
+              <option value="hero">Hero</option>
+              <option value="text">Text</option>
+              <option value="features">Features</option>
+              <option value="pricing">Pricing</option>
+              <option value="testimonials">Testimonials</option>
+            </select>
+            <button id="addSectionBtn" class="btn btn-primary">Add Section</button>
+          </div>
+        </section>
+
+        <section id="sectionEditor" class="panel" hidden>
+          <h4>Section editor</h4>
+          <div id="sectionEditorInner"></div>
+          <div class="row" style="margin-top:12px;">
+            <button id="sectionSaveBtn" class="btn btn-primary">Save section</button>
+            <button id="sectionCancelBtn" class="btn btn-outline">Cancel</button>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js" defer></script>
+</body>
+</html>

@@ -3,131 +3,174 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AI Appointment Setter — Book Smartly</title>
-  <meta name="description" content="AI-powered appointment setting for busy teams. Beautiful, fast, and simple scheduling." />
+  <title>SchedAI — AI Appointment Setter</title>
+  <meta name="description" content="SchedAI automates outreach, follows up intelligently, and books meetings right on your calendar. Spend less time scheduling and more time growing your business." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header class="site-header">
-    <div class="container header-grid">
-      <a class="brand" href="#" aria-label="AI Appointment Setter home">
-        <!-- Inline minimal logo -->
-        <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <div class="container header-inner">
+      <a class="brand" href="#" aria-label="SchedAI home">
+        <svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
           <defs>
             <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
-              <stop offset="0" stop-color="#5eead4"/>
+              <stop offset="0" stop-color="#7DE2D0"/>
               <stop offset="1" stop-color="#06b6d4"/>
             </linearGradient>
           </defs>
           <rect width="24" height="24" rx="6" fill="url(#g)"/>
-          <path d="M7 12h10M7 8h10M7 16h6" stroke="#082d49" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+          <path d="M7 12h10M7 8h10M7 16h6" stroke="#04202a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
         </svg>
         <span class="brand-text">SchedAI</span>
       </a>
 
-      <nav class="nav" aria-label="Primary">
+      <nav class="nav" aria-label="Primary navigation">
         <a href="#features">Features</a>
         <a href="#pricing">Pricing</a>
         <a href="#testimonials">Customers</a>
-        <button id="openBooking" class="btn btn-primary">Book a Demo</button>
       </nav>
+
+      <div class="header-actions">
+        <button id="openBooking" class="btn btn-primary">Book a Demo</button>
+        <button id="openDemoVideo" class="btn btn-ghost">Watch Demo</button>
+      </div>
     </div>
   </header>
 
   <main>
+    <!-- Hero -->
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-content">
-          <h1>Let AI set your appointments — faster, smarter, and hands-free.</h1>
-          <p class="lead">Automated outreach, intelligent follow-ups, and calendar-first scheduling so your team focuses on closing deals, not chasing meetings.</p>
+          <h1>More meetings. Less hassle.</h1>
+          <p class="lead">SchedAI handles outreach, follow-ups and calendar coordination using intelligent automation — so your team can focus on what matters: customers.</p>
 
           <div class="hero-ctas">
-            <button id="openBookingHero" class="btn btn-primary btn-lg">Get started — Book a Demo</button>
-            <a href="#pricing" class="btn btn-ghost">See Pricing</a>
+            <button id="openBookingHero" class="btn btn-primary btn-xl">Book a free demo</button>
+            <a href="#pricing" class="btn btn-outline">See pricing</a>
           </div>
 
           <ul class="trust">
-            <li><strong>99.9%</strong> deliverability</li>
-            <li><strong>30+</strong> integrations</li>
-            <li><strong>24/7</strong> automated outreach</li>
+            <li><strong>Trusted by</strong></li>
+            <li><img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?w=120&q=60&auto=format&fit=crop&crop=faces" alt="logo" /></li>
+            <li><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=120&q=60&auto=format&fit=crop&crop=faces" alt="logo" /></li>
+            <li><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=120&q=60&auto=format&fit=crop&crop=faces" alt="logo" /></li>
           </ul>
+
+          <div class="hero-stats">
+            <div><strong>+40%</strong> meetings booked</div>
+            <div><strong>99%</strong> inbox deliverability</div>
+            <div><strong>30+</strong> calendar integrations</div>
+          </div>
         </div>
 
-        <div class="hero-card" aria-hidden="false">
-          <div class="card-top">
-            <div class="chip">Live demo</div>
-            <div class="time">Next available: <strong>Today • 2:30 PM</strong></div>
-          </div>
-          <div class="card-body">
-            <div class="appointment-compact">
-              <div class="ap-left">
-                <h4>Intro: AI Appointment Setter</h4>
-                <p class="muted">15 min • Video call</p>
-              </div>
-              <div class="ap-right">
-                <button class="btn btn-outline" id="openBookingFromCard">Reserve</button>
+        <div class="hero-media" aria-hidden="false">
+          <div class="device-mock">
+            <img class="mock-img" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=60&auto=format&fit=crop" alt="SchedAI dashboard mockup" />
+            <div class="mock-overlay">
+              <div class="mock-card">
+                <div class="m-left">
+                  <div class="m-title">Intro • 15 min</div>
+                  <div class="m-sub">Video call</div>
+                </div>
+                <div class="m-right">
+                  <button class="btn btn-outline" id="openBookingFromCard">Reserve</button>
+                </div>
               </div>
             </div>
-            <div class="muted small">No spam. Cancel anytime.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="features" class="container features">
-      <h2 class="section-title">Everything you need for effortless scheduling</h2>
+    <!-- Features -->
+    <section id="features" class="container features-section">
+      <h2 class="section-title">Built for small business owners</h2>
+      <p class="muted sub">No developer required. Simple setup, clear ROI, and concierge-level onboarding if you want it.</p>
+
       <div class="features-grid">
-        <article class="feature">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M12 8v4l3 3" stroke="#06b6d4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="3" width="18" height="18" rx="3" stroke="#082d49" stroke-opacity="0.12" stroke-width="1.2"/></svg>
-          <h3>Auto outreach & follow-ups</h3>
-          <p>Sequences powered by AI that personalize messages and follow up until a time is confirmed.</p>
+        <article class="feature-card">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" class="icon" aria-hidden><path d="M12 8v4l3 3" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Hands-free outreach</h3>
+          <p>AI drafts personalized messages and follows up automatically until a meeting is confirmed.</p>
         </article>
 
-        <article class="feature">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M7 7h10M7 11h10M7 15h6" stroke="#5eead4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <h3>Calendar-first scheduling</h3>
-          <p>Two-way sync with Google, Outlook, and Microsoft 365 so availability is always accurate.</p>
+        <article class="feature-card">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" class="icon" aria-hidden><path d="M7 7h10M7 11h10M7 15h6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Calendar-first</h3>
+          <p>Two-way sync with Google, Outlook, and Microsoft 365 so double-booking is a thing of the past.</p>
         </article>
 
-        <article class="feature">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M12 2l3 7h7l-5.5 4 2 7L12 16 5.5 20l2-7L2 9h7l3-7z" stroke="#06b6d4" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <h3>Smart routing & preferences</h3>
-          <p>Route meetings to the right rep, automatically block buffers, and respect blackout windows.</p>
+        <article class="feature-card">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" class="icon" aria-hidden><path d="M12 2l3 7h7l-5.5 4 2 7L12 16 5.5 20l2-7L2 9h7l3-7z" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Smart routing</h3>
+          <p>Automatically assign meetings to the right rep with custom rules and blackout times.</p>
         </article>
 
-        <article class="feature">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M12 2a10 10 0 100 20 10 10 0 000-20z" stroke="#06b6d4" stroke-width="1.2"/><path d="M8 12h8" stroke="#082d49" stroke-opacity="0.6" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <article class="feature-card">
+          <div class="icon-wrap">
+            <svg viewBox="0 0 24 24" class="icon" aria-hidden><path d="M12 2a10 10 0 100 20 10 10 0 000-20z" stroke="#fff" stroke-width="1.2"/><path d="M8 12h8" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
           <h3>Secure & compliant</h3>
-          <p>GDPR-ready controls, encrypted data in transit and at rest, and role-based access.</p>
+          <p>GDPR-ready controls, encrypted data, and enterprise privacy tools when you need them.</p>
         </article>
       </div>
     </section>
 
+    <!-- How it works -->
+    <section class="container howitworks">
+      <h2 class="section-title">How SchedAI works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h4>Connect your calendar</h4>
+          <p>One-click sync with Google or Outlook. We only read free/busy — no personal data left behind.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h4>Set your preferences</h4>
+          <p>Choose meeting lengths, buffers, and time windows — or let the AI optimize them for best booking rates.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h4>Let AI do the rest</h4>
+          <p>SchedAI personalizes outreach, follows up, and places confirmed meetings on your calendar.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
     <section id="pricing" class="container pricing">
-      <h2 class="section-title">Simple pricing that scales</h2>
+      <h2 class="section-title">Simple plans for growing teams</h2>
       <div class="pricing-grid">
         <div class="plan">
           <h3>Starter</h3>
-          <p class="price">$29/mo</p>
-          <p class="muted">Best for individuals</p>
+          <p class="price">$49<span class="per">/mo</span></p>
+          <p class="muted">Perfect for solo owners</p>
           <ul>
-            <li>100 outreach messages/mo</li>
+            <li>200 outreach messages / month</li>
             <li>Calendar sync</li>
-            <li>Basic analytics</li>
+            <li>Email support</li>
           </ul>
-          <button class="btn btn-outline" id="startTrial">Start Free Trial</button>
+          <button class="btn btn-outline">Start free trial</button>
         </div>
 
         <div class="plan plan-featured">
-          <div class="badge">Popular</div>
+          <div class="badge">Best Value</div>
           <h3>Pro</h3>
-          <p class="price">$99/mo</p>
-          <p class="muted">For growing teams</p>
+          <p class="price">$149<span class="per">/mo</span></p>
+          <p class="muted">For small teams</p>
           <ul>
-            <li>1,000 outreach messages/mo</li>
-            <li>Team inbox</li>
+            <li>2,000 outreach messages / month</li>
+            <li>Team inbox & routing</li>
             <li>Priority support</li>
           </ul>
           <button class="btn btn-primary">Get Pro</button>
@@ -142,42 +185,46 @@
             <li>Dedicated success manager</li>
             <li>Custom integrations</li>
           </ul>
-          <button class="btn btn-outline">Contact Sales</button>
+          <button class="btn btn-outline">Contact sales</button>
         </div>
       </div>
     </section>
 
+    <!-- Testimonials -->
     <section id="testimonials" class="container testimonials">
-      <h2 class="section-title">Loved by sales teams</h2>
+      <h2 class="section-title">What business owners say</h2>
       <div class="test-grid">
-        <blockquote>
-          <p>"SchedAI replaced hours of manual outreach — our pipeline filled in weeks, not months."</p>
-          <footer>— Maya R., Head of Sales at Flowbyte</footer>
-        </blockquote>
+        <figure class="testimonial">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&q=60&auto=format&fit=crop&crop=faces" alt="Maya" />
+          <blockquote>"SchedAI booked more meetings in our first month than we'd booked in three. It's like hiring a virtual assistant."</blockquote>
+          <figcaption>— Maya R., Head of Sales, Flowbyte</figcaption>
+        </figure>
 
-        <blockquote>
-          <p>"The AI personalization is uncanny. Meetings booked went up 42% while our admin time dropped."</p>
-          <footer>— Aaron T., CEO at LanternApps</footer>
-        </blockquote>
+        <figure class="testimonial">
+          <img src="https://images.unsplash.com/photo-1545996124-1bfa5f6e9b1d?w=120&q=60&auto=format&fit=crop&crop=faces" alt="Aaron" />
+          <blockquote>"We cut admin time by 60% and our calendar is finally organized. Our reps love it."</blockquote>
+          <figcaption>— Aaron T., CEO, LanternApps</figcaption>
+        </figure>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid">
+    <div class="container footer-inner">
       <div>
         <p class="brand-mini">SchedAI — AI Appointment Setter</p>
         <p class="muted">© <span id="year"></span> SchedAI, Inc.</p>
       </div>
 
-      <form id="contactForm" class="contact-form" aria-label="Contact sales">
-        <input type="email" name="email" id="contactEmail" placeholder="Your email" required aria-label="Your email">
-        <button type="submit" class="btn btn-primary">Contact Sales</button>
-      </form>
+      <div class="footer-links">
+        <a href="/admin/">Admin</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
   </footer>
 
-  <!-- Booking modal -->
+  <!-- Booking modal (kept simple & accessible) -->
   <div class="modal" id="bookingModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="bookingTitle">
     <div class="modal-backdrop" id="modalBackdrop"></div>
     <div class="modal-panel" role="document">
@@ -188,32 +235,25 @@
 
       <main class="modal-body">
         <form id="bookingForm" novalidate>
-          <!-- Step 1 -->
           <section class="step" data-step="1">
-            <label for="serviceSelect">Choose service</label>
+            <label for="serviceSelect">Choose demo</label>
             <select id="serviceSelect" required>
               <option value="">Select a demo</option>
               <option value="intro-15">Intro • 15 min</option>
-              <option value="deep-30">Product Deep-dive • 30 min</option>
-              <option value="team-60">Team onboarding • 60 min</option>
+              <option value="deep-30">Deep-dive • 30 min</option>
             </select>
-            <div class="form-row">
-              <label for="attendees">Attendees</label>
-              <input id="attendees" type="number" min="1" max="10" value="1" />
-            </div>
+
             <div class="modal-actions">
               <button type="button" class="btn btn-outline" id="cancelBooking">Cancel</button>
               <button type="button" class="btn btn-primary" id="nextToDate">Next</button>
             </div>
           </section>
 
-          <!-- Step 2 -->
           <section class="step" data-step="2" hidden>
-            <label for="date">Pick a date</label>
+            <label for="date">Date</label>
             <input id="date" type="date" required />
-            <label for="time">Pick a time</label>
+            <label for="time">Time</label>
             <input id="time" type="time" required />
-            <div class="muted small">Times displayed in your local timezone.</div>
 
             <div class="modal-actions">
               <button type="button" class="btn btn-outline" id="backToService">Back</button>
@@ -221,7 +261,6 @@
             </div>
           </section>
 
-          <!-- Step 3 -->
           <section class="step" data-step="3" hidden>
             <h4>Confirm</h4>
             <div class="confirm-list">
@@ -233,16 +272,12 @@
             <label for="bookerEmail">Your email</label>
             <input id="bookerEmail" type="email" placeholder="you@company.com" required />
 
-            <label for="notes">Notes (optional)</label>
-            <textarea id="notes" rows="3" placeholder="Brief note for the meeting"></textarea>
-
             <div class="modal-actions">
               <button type="button" class="btn btn-outline" id="backToDate">Back</button>
               <button type="submit" class="btn btn-primary" id="confirmBtn">Confirm booking</button>
             </div>
           </section>
 
-          <!-- Success -->
           <section class="step success" data-step="success" hidden>
             <div class="success-illustration">✓</div>
             <h4>You're all set</h4>

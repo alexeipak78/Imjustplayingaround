@@ -1,6 +1,5 @@
-// Minimal JS to manage modal, steps, and mock submission
+// Booking modal + simple interactions (keeps prior functionality, lightly enhanced)
 document.addEventListener('DOMContentLoaded', () => {
-  // header CTAs
   const openBooking = document.getElementById('openBooking');
   const openBookingHero = document.getElementById('openBookingHero');
   const openBookingFromCard = document.getElementById('openBookingFromCard');
@@ -18,9 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function showModal() {
     bookingModal.setAttribute('aria-hidden','false');
-    // show first step
     goToStep(1);
-    // focus
     bookingModal.querySelector('[data-step="1"] select, [data-step="1"] input')?.focus();
     document.body.style.overflow = 'hidden';
   }
@@ -30,14 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   [openBooking, openBookingHero, openBookingFromCard].forEach(btn => {
-    btn && btn.addEventListener('click', (e) => { e.preventDefault(); showModal(); });
+    btn && btn.addEventListener('click', (e) => { e && e.preventDefault(); showModal(); });
   });
 
   [closeModal, modalBackdrop, cancelBooking].forEach(el => {
     el && el.addEventListener('click', () => hideModal());
   });
 
-  // step navigation
   function goToStep(n) {
     currentStep = n;
     stepEls.forEach(s => s.hidden = true);
@@ -45,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (target) target.hidden = false;
   }
 
-  // Step controls
+  // step controls
   const nextToDate = document.getElementById('nextToDate');
   const backToService = document.getElementById('backToService');
   const nextToConfirm = document.getElementById('nextToConfirm');
@@ -53,12 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   nextToDate && nextToDate.addEventListener('click', () => {
     const service = document.getElementById('serviceSelect');
-    if (!service.value) {
-      service.focus();
-      service.setCustomValidity('Please select a service');
-      service.reportValidity();
-      return;
-    }
+    if (!service.value) { service.focus(); service.setCustomValidity('Please select a demo'); service.reportValidity(); return; }
     service.setCustomValidity('');
     goToStep(2);
   });
@@ -78,63 +69,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
   backToDate && backToDate.addEventListener('click', () => goToStep(2));
 
-  // Submit booking (mock)
   bookingForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = document.getElementById('bookerEmail');
-    if (!email.checkValidity()) {
-      email.reportValidity();
-      email.focus();
-      return;
-    }
-    // Show loading state
+    if (!email.checkValidity()) { email.reportValidity(); email.focus(); return; }
     const confirmBtn = document.getElementById('confirmBtn');
     confirmBtn.disabled = true;
     confirmBtn.textContent = 'Booking...';
 
-    // Mock network latency
+    // simulate network latency
     await new Promise(r => setTimeout(r, 900));
 
-    // In production: call your API here, then handle errors.
-    // Example:
-    // await fetch('/api/book', {method:'POST', body: JSON.stringify(payload)});
-
-    // Show success step
+    // TODO: replace with real API call to schedule and send invites
     stepEls.forEach(s => s.hidden = true);
     const success = bookingForm.querySelector('.step[data-step="success"]');
-    if (success) {
-      success.hidden = false;
-    }
+    if (success) success.hidden = false;
+
     confirmBtn.disabled = false;
     confirmBtn.textContent = 'Confirm booking';
   });
 
-  // Done button to close modal
   const doneBtn = document.getElementById('doneBtn');
   doneBtn && doneBtn.addEventListener('click', () => hideModal());
 
-  // Quick contact form in footer
+  // contact form (simple)
   const contactForm = document.getElementById('contactForm');
-  contactForm && contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = document.getElementById('contactEmail');
-    if (!email.checkValidity()) { email.reportValidity(); return; }
-    // Mock UX: show toast or simple alert
-    email.value = '';
-    alert('Thanks — we will reach out shortly.');
-  });
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('contactEmail');
+      if (!email.checkValidity()) { email.reportValidity(); return; }
+      email.value = '';
+      alert('Thanks — we will reach out shortly.');
+    });
+  }
 
-  // Keyboard handling
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && bookingModal.getAttribute('aria-hidden') === 'false') hideModal();
-  });
-
-  // Small CTA: start trial hooks
-  const startTrial = document.getElementById('startTrial');
-  startTrial && startTrial.addEventListener('click', () => {
-    // For now open booking modal and pre-select lightweight plan
-    showModal();
-    const sel = document.getElementById('serviceSelect');
-    if (sel) sel.value = 'intro-15';
   });
 });
